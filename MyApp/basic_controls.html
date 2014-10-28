@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<!-- Common Kendo UI CSS -->
+    <link href="kendo/styles/kendo.common.min.css" rel="stylesheet" />
+	
+	<!-- Default Kendo UI theme CSS -->
+    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet" />
+	
+	<!-- (optional) Kendo UI DataViz CSS, include only if you will use the data visualisation features -->
+    <link href="kendo/styles/kendo.dataviz.min.css" rel="stylesheet" />
+    <link href="kendo/styles/kendo.dataviz.default.min.css" rel="stylesheet" />
+	
+    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+	<link href="kendo/styles/console.css" rel="stylesheet" />
+    
+	<!-- jQuery JavaScript -->
+	<script src="kendo/js/jquery.min.js"></script>
+    <!-- angularjs JavaScript -->
+	<script src="kendo/js/angular.min.js"></script>
+	<!-- Kendo UI combined JavaScript -->
+    <script src="kendo/js/kendo.all.min.js"></script>
+	
+	<script src="kendo/js/console.js"></script>
+	
+	<!-- Kendo UI custom JavaScript -->
+	<script src="kendo/js/kendo_inputs.js"></script>
+	
+</head>
+<body>
+    <div data-model="viewModel" data-role="view" id="button-mvvm" data-title="Button MVVM">
+		
+		<!-- HTML element from which the DatePicker would be initialized -->
+		<p><label>Date picker</label></p>
+		<p><input id="datepicker" /></p>
+		
+		
+		<!-- HTML element from which the kendoAutoComplete would be initialized -->
+		 <p><label>Auto Complete</label></p>
+		 <p><input id="animal" /></p>
+		 
+		 <!-- HTML element from which the kendoButton would be initialized -->
+		 <p><button>Foo</button> | <button>Bar</button></p>
+		 
+		<div id="grid"></div>
+
+		
+</div>
+
+<script>
+    var viewModel = kendo.observable({
+        isEnabled: true,
+        isVisible: true,
+        onClick: function(e) {
+            kendoConsole.log("event :: click", false, "#button-mvvm");
+        }
+    });
+</script>
+
+<style scoped>
+    .km-root .console {
+        background-color: transparent;
+        border: 0;
+        margin: 1.4em 1em;
+        overflow: hidden;
+        height: auto;
+    }
+</style>
+
+
+<script>
+    var app = new kendo.mobile.Application(document.body);
+</script>
+</body>
+</html>
