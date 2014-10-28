@@ -39,11 +39,33 @@
 		<!-- HTML element from which the kendoAutoComplete would be initialized -->
 		 <p><label>Auto Complete</label></p>
 		 <p><input id="animal" /></p>
+		
 		 
 		 <!-- HTML element from which the kendoButton would be initialized -->
 		 <p><button>Foo</button> | <button>Bar</button></p>
 		 
 		<div id="grid"></div>
+		
+		
+		<div data-role="view" data-model="foo">
+    <div>
+    An autocomplete widget
+    <input data-role="autocomplete" data-source="['foo', 'bar', 'baz']" />
+    </div>
+
+    <div>
+    A widget bound to the mobile view ViewModel dataSource field
+    <input data-role="autocomplete" data-bind="source: dataSource" />
+    </div>
+</div>
+
+<script>
+    var foo = kendo.observable({
+        dataSource: ['foo', 'bar', 'baz']);
+    });
+
+    new kendo.mobile.Application();
+</script>
 
 		
 </div>
