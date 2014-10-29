@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>My App</title>
+
+    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet"/>
+    <link href="kendo/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div data-role="view">
+    <a href="#foo" data-rel="modalview" data-role="button">Foo</a>
+</div>
+
+<div data-role="modalview" id="foo">
+    <div data-role="header">
+        <div data-role="navbar">
+            <a data-align="right" data-click="closeModalView" data-role="button">Close</a>
+        </div>
+    </div>
+    <h1>Prasanna</h1>
+    <h1>Prasanna</h1><h1>Prasanna</h1><h1>Prasanna</h1>
+</div>
+
+<script>
+    function closeModalView(e) {
+        // find the closest modal view, relative to the button element.
+        var modalView = e.sender.element.closest("[data-role=modalview]").data("kendoMobileModalView");
+        modalView.close();
+    }
+</script>
+
+
+
+<script src="kendo/js/jquery.min.js"></script>
+<script src="kendo/js/kendo.all.min.js"></script>
+
+<script>
+    var app = new kendo.mobile.Application(document.body,
+            {
+                transition: 'overlay:left',
+                platform: ''
+
+            });
+</script>
+</body>
+</html>

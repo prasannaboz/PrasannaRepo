@@ -7,27 +7,28 @@
 
 
 
-<div id="about" data-role="view" data-layout="default">
-
-    <!--########## Header ###########-->
-    <header data-role="header">
-        <div data-role="navbar">About us</div>
-    </header>
-    <!--########## Header ###########-->
-
-    All About My App
-    <ul id="buttongroup" data-role="buttongroup">
-        <li data-icon="cart"></li>
-        <li>Option 2</li>
-        <li data-badge="5">Option 1</li>
-        <li data-badge="105">Option 2</li>
-    </ul>
-
+<div data-role="view">
+    <a href="#foo" data-rel="modalview" data-role="button">Foo</a>
 </div>
 
-<div data-role="view" id="foo">Foo <a href="#bar" data-role="button">Go to Bar</a></div>
-<div data-role="view" id="bar">Bar <a href="#foo" data-role="button">Go to Foo</a></div>
+<div data-role="modalview" id="foo">
+    <div data-role="header">
+        <div data-role="navbar">
+            <span data-role="view-title">Hello World!</span>
+            <a data-align="right" data-role="button">Close</a>
+        </div>
+    </div>
 
+    <ul data-role="listview">
+        <li>Foo</li>
+    </ul>
+
+    <div data-role="footer">
+        <div data-role="navbar">
+            <a data-align="right" data-role="button">Details</a>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
