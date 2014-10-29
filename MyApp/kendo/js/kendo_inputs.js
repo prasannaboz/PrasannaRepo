@@ -7,7 +7,10 @@
 
 	//Kendo UI kendoAutoComplete
 	$(function() {
-	  $("#animal").kendoAutoComplete({ dataSource: [ "Ant", "Antilope", "Badger", "Beaver", "Bird" ] });
+	 $("#animal").kendoAutoComplete({ 
+		dataSource: [ "Ant", "Antilope", "Badger", "Beaver", "Bird" ]
+	 });
+
 	});
 
 	//Kendo UI kendoButton
