@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Backend Demo</title>
+    <!-- Common Kendo UI CSS -->
+    <link href="kendo/styles/kendo.common.min.css" rel="stylesheet"/>
+
+    <!-- Default Kendo UI theme CSS -->
+    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet"/>
+
+    <!-- (optional) Kendo UI DataViz CSS, include only if you will use the data visualisation features -->
+    <link href="kendo/styles/kendo.dataviz.min.css" rel="stylesheet"/>
+    <link href="kendo/styles/kendo.dataviz.default.min.css" rel="stylesheet"/>
+
+    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet"/>
+    <link href="kendo/styles/console.css" rel="stylesheet"/>
+</head>
+<body>
+
+
+<!--[if gte IE 9]>-->
+<div id="grid">
+    <table id="item-list">
+        <tr>
+            <th data-field="ItemName">Name</th>
+            <th data-field="ItemDescription">Description</th>
+        </tr>
+    </table>
+</div>
+
+<div style="height:100px;width:auto;">
+
+    <div style="float:left;margin-left:100px">
+
+    <h2>create</h2>
+
+    <form action="#" method="post">
+        <input type="text" id="item-name" placeholder="Item Name" ><br/><br/>
+        <textarea id="item-desc" placeholder="Item Description" ></textarea><br/><br/>
+
+        <button id="create-item">Create an Item</button>
+    </form>
+    </div>
+
+    <div style="float:right; margin-right:100px">
+
+    <h2>Edit</h2>
+
+    <form action="#" method="post">
+        <input type="text" id="change-name" placeholder="Item Name" required><br/><br/>
+        <textarea id="change-desc" placeholder="Item Description" required></textarea><br/><br/>
+
+        <button id="update-item">Update an Item</button> &nbsp;&nbsp;&nbsp;&nbsp;<button id="delete-item">Delete an Item</button>
+    </form>
+    </div>
+</div>
+
+
+<!-- jQuery JavaScript -->
+<script src="kendo/js/jquery.min.js"></script>
+<!-- Kendo UI combined JavaScript -->
+<script src="kendo/js/kendo.all.min.js"></script>
+<!-- Kendo UI console on screens JavaScript -->
+<script src="kendo/js/console.js"></script>
+
+<!--Custom Scripts Goes Here-->
+
+<!-- Kendo UI custom JavaScript -->
+<script src="everlive/min/everlive.all.min.js"></script>
+<script src="custom/settings.js"></script>
+<script src="custom/kendo_inputs.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        // initialize Everlive application with application API key
+
+        var itemModel = new kendo.data.Model.define({
+            id: "id"
+        })
+
+        var dataSource = new kendo.data.DataSource({
+            type: "everlive",
+            transport: {
+                // binding to the Items type in Everlive
+                typeName: "Items"
+            },
+            schema: {
+                model: itemModel
+            },
+
+            serverPaging: true,
+            pageSize: 20,
+
+            serverSorting: true,
+            sort: { field: 'ModifiedAt', dir: 'asc' }
+        });//End Of Data
+
+        var selectedItem;
+
+        $("#item-list").kendoGrid({
+            dataSource: dataSource,
+            selectable: true,
+            change: function(){
+                var id = this.select().data("id");
+
+                selectedItem = this.datasource.get("id");
+
+                $("#change-name").val(selectedItem.get("ItemName"));
+                $("#change-desc").val(selectedItem.get("ItemDescription"));
+            }
+        });
+
+        //Creating new item
+        $("#create-item").click(function () {
+            dataSource.add({ItemName: $("#item-name").val(), ItemDescription: $("#item-desc").val()})
+
+            dataSource.sync();//sync the changes to the database
+
+            //To empty the input fields after it
+            $("#item-name").val("");
+            $("#item-desc").val("");
+
+            dataSource.read();//refreshes the data in the grid
+        });
+
+
+    });
+</script>
+<!--<![endif]-->
+
+<script>
+    var app = new kendo.mobile.Application(document.body);
+</script>
+
+</body>
+</html>
