@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>MVVM</title>
+
+    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet"/>
+    <link href="kendo/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+<div data-role="view" data-title="Touch Events">
+
+    <div
+            id="touchSurface"
+            data-role="touch"
+            data-enable-swipe="1"
+            data-touchstart="myTouch.touchstart"
+            data-swipe="myTouch.swipe"
+            data-tap="myTouch.tap"
+            data-doubletap="myTouch.doubletap"
+            data-hold="myTouch.hold"
+            >
+        Touch, swipe, double-tap, tap, and hold me
+    </div>
+    <div class="console" style="width: 200px; min-width: 200px;"></div>
+</div>
+<script>
+    window.myTouch = {
+        touchstart: function(e) { kendoConsole.log("touch start"); },
+        swipe: function(e) { kendoConsole.log("swipe " + e.direction); },
+        tap: function(e) { kendoConsole.log("tap"); },
+        doubletap: function(e) { kendoConsole.log("double tap"); },
+        hold: function(e) { kendoConsole.log("hold"); }
+    }
+</script>
+
+<style scoped>
+    #touchSurface {
+        background: black;
+        color: white;
+        padding: 20px;
+        line-height: 20em;
+        text-align: center;
+        font-style: italic;
+        font-size: .9em;
+    }
+</style>
+
+<script src="kendo/js/jquery.min.js"></script>
+<script src="kendo/js/kendo.all.min.js"></script>
+<script src="kendo/js/console.js"></script>
+
+
+<script>
+    var app = new kendo.mobile.Application(document.body);
+</script>
+
+
+
+</body>
+</html>
