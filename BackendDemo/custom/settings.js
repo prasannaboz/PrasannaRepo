@@ -1,10 +1,8 @@
-/**
- * Application Settings
- */
-var appSettings = {
+(function(){
 
-    everlive: {
-        apiKey: 'IMregDJC77R1b1yM', // Put your Backend Services API key here
-        scheme: 'http'
-    }
-};
+    var everlive = new Everlive({
+        apiKey: "IMregDJC77R1b1yM",
+        scheme: "http"
+    });
+
+}());
