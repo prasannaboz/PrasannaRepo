@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Backend Demo</title>
+    <!-- Common Kendo UI CSS -->
+    <link href="kendo/styles/kendo.common.min.css" rel="stylesheet"/>
+
+    <!-- Default Kendo UI theme CSS -->
+    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet"/>
+
+    <!-- (optional) Kendo UI DataViz CSS, include only if you will use the data visualisation features -->
+    <link href="kendo/styles/kendo.dataviz.min.css" rel="stylesheet"/>
+    <link href="kendo/styles/kendo.dataviz.default.min.css" rel="stylesheet"/>
+
+    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet"/>
+    <link href="kendo/styles/console.css" rel="stylesheet"/>
+</head>
+<body>
+
+
+    <!--[if gte IE 9]>-->
+    <div id="grid"></div>
+
+
+    <!-- jQuery JavaScript -->
+    <script src="kendo/js/jquery.min.js"></script>
+    <!-- Kendo UI combined JavaScript -->
+    <script src="kendo/js/kendo.all.min.js"></script>
+    <!-- Kendo UI console on screens JavaScript -->
+    <script src="kendo/js/console.js"></script>
+
+    <!--Custom Scripts Goes Here-->
+
+    <!-- Kendo UI custom JavaScript -->
+    <script src="everlive/min/everlive.all.min.js"></script>
+
+
+    <script>
+        var everlive = new Everlive({
+            apiKey: "IMregDJC77R1b1yM",
+            scheme: "http"
+        });
+
+        $(document).ready(function() {
+            // initialize Everlive application with application API key
+            var dataSource = new kendo.data.DataSource({
+                type: "everlive",
+                transport: {
+                    // binding to the Items type in Everlive
+                    typeName: "Items"
+                },
+                schema: {
+                    model: {
+                        id: "Id",
+                        fields: {
+                            // default Everlive fields
+                            CreatedBy:  { type: "string" },
+                            CreatedAt:  { type: "date" },
+                            ModifiedAt: { type: "date" },
+
+                            // type fields
+                            ItemDescription: { type: "string" },
+                            ItemName:  { type: "string" }
+                        }
+                    }
+                },
+                serverPaging: true,
+                pageSize: 20,
+
+                serverSorting: true,
+                sort: { field: 'ModifiedAt', dir: 'asc' }
+            });
+
+            $("#grid").kendoGrid({
+                dataSource: dataSource,
+                height: 430,
+                sortable: true,
+                pageable: true,
+                columns: [
+                    {
+                        field: "ItemName",
+                        width: 100
+                    }, {
+                        field: "ItemDescription",
+                        title: "Description",
+                        //width: 120,
+                        //format: "{0:MM/dd/yyyy}"
+                    }
+                ]
+            });
+        });
+    </script>
+    <!--<![endif]-->
+
+</body>
+</html>
+
+
+
+Id:
+
+dfe883b0-6968-11e4-bec1-a9e794736e5e
+
+Created at:
+Nov 11, 2014, 11:36 AM
+Modified at:
+Nov 11, 2014, 11:40 AM
+Permissions:
+Public
+Created by:
+Not set
+Modified by:
+Not set
+Owner:
+Not set
+CategoryId:
+5adc75f0-68be-11e4-af4a-91964683584e
+ItemDescription:
+
+Optical mouse
+
+ItemName:
