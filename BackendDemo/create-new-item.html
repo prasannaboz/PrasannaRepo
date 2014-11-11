@@ -16,8 +16,6 @@
     <link href="kendo/styles/console.css" rel="stylesheet"/>
 </head>
 <body>
-
-
 <!--[if gte IE 9]>-->
 <div id="grid">
     <table id="item-list">
@@ -30,29 +28,27 @@
 
 <div style="height:100px;width:auto;">
 
+    <!--###### Creating the item ########-->
     <div style="float:left;margin-left:100px">
-
-    <h2>create</h2>
-
-    <form action="#" method="post">
-        <input type="text" id="item-name" placeholder="Item Name" ><br/><br/>
-        <textarea id="item-desc" placeholder="Item Description" ></textarea><br/><br/>
-
+        <h2>create</h2>
+        <input type="text" id="item-name" placeholder="Item Name"><br/><br/>
+        <textarea id="item-desc" placeholder="Item Description"></textarea><br/><br/>
         <button id="create-item">Create an Item</button>
-    </form>
     </div>
+    <!--######./ Creating the item ########-->
 
+    <!--###### Editing the item ########-->
     <div style="float:right; margin-right:100px">
 
-    <h2>Edit</h2>
-
-    <form action="#" method="post">
+        <h2>Edit</h2>
         <input type="text" id="change-name" placeholder="Item Name" required><br/><br/>
         <textarea id="change-desc" placeholder="Item Description" required></textarea><br/><br/>
-
-        <button id="update-item">Update an Item</button> &nbsp;&nbsp;&nbsp;&nbsp;<button id="delete-item">Delete an Item</button>
-    </form>
+        <button id="update-item">Update an Item</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button id="delete-item">Delete an Item</button>
     </div>
+    <!--######./ Editing the item ########-->
+
 </div>
 
 
@@ -101,7 +97,7 @@
         $("#item-list").kendoGrid({
             dataSource: dataSource,
             selectable: true,
-            change: function(){
+            change: function () {
                 var id = this.select().data("id");
 
                 selectedItem = this.datasource.get("id");
