@@ -92,11 +92,16 @@
 <!-- Kendo UI custom JavaScript -->
 <script src="everlive/min/everlive.all.min.js"></script>
 <script src="custom/settings.js"></script>
-<script src="custom/kendo_inputs.js"></script>
 <script src="custom/itemSearch.js"></script>
+<script src="custom/kendo_inputs.js"></script>
+
 
 <script>
-    var app = new kendo.mobile.Application(document.body);
+    var app = new kendo.mobile.Application(document.body,{
+        transition: 'slide',
+        statusBarStyle: 'statusBarStyle',
+        skin: 'flat'
+    });
 </script>
 
 </body>

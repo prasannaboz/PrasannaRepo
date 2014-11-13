@@ -5,6 +5,8 @@
 
     // initialize Everlive application with application API key
 
+    var selectedItem;
+
     var itemModel = new kendo.data.Model.define({
         id: "id"
     })
@@ -13,7 +15,8 @@
         type: "everlive",
         transport: {
             // binding to the Items type in Everlive
-            typeName: "Items"
+            typeName: "Items",
+            read: url="http://api.everlive.com/v1/IMregDJC77R1b1yM/Items"
         },
         schema: {
             model: itemModel
@@ -26,18 +29,17 @@
         sort: { field: 'ModifiedAt', dir: 'asc' }
     });//End Of Data
 
-    var selectedItem;
+
 
     $("#item-list").kendoGrid({
         dataSource: dataSource,
         selectable: true,
-        change: function () {
+        change: function(){
             var id = this.select().data("id");
+            selectedItem = this.dataSource.get(id);
 
-            selectedItem = this.datasource.get("id");
-
-            $("#change-name").val(selectedItem.get("ItemName"));
-            $("#change-desc").val(selectedItem.get("ItemDescription"));
+            $("#change-name").val(selectedItem.get(ItemName));
+            $("#change-desc").val(selectedItem.get(ItemDescription));
         }
     });
 
