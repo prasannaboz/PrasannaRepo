@@ -1,10 +1,13 @@
 /**
+ * Created by mkale on 14/11/2014.
+ */
+/**
  * Activities view model
  */
 
 var app = app || {};
 
-app.Posts = (function () {
+app.PostTypes = (function () {
     'use strict'
 
     // Activities model
@@ -22,51 +25,14 @@ app.Posts = (function () {
                     field: 'CreatedAt',
                     defaultValue: new Date()
                 },
-                Picture: {
-                    fields: 'Picture',
+                TypeName: {
+                    fields: 'TypeName',
                     defaultValue: null
-                },
-                SaleEndDate: {
-                    field: 'SaleEndDate',
-                    defaultValue: new Date()
-                },
-                UserId: {
-                    field: 'User_id',
-                    defaultValue: null
-                },
-
-                Description: {
-                    field: 'Description',
-                    default: null
-                },
-                Price: {
-                    field: 'Price',
-                    default: null
                 }
             },
             CreatedAtFormatted: function () {
 
                 return app.helper.formatDate(this.get('CreatedAt'));
-            },
-            PictureUrl: function () {
-
-                return app.helper.resolvePictureUrl(this.get('Picture'));
-            },
-            User: function () {
-
-                var userId = this.get('UserId');
-
-                var user = $.grep(app.Users.users(), function (e) {
-                    return e.Id === userId;
-                })[0];
-
-                return user ? {
-                    DisplayName: user.DisplayName,
-                    PictureUrl: app.helper.resolveProfilePictureUrl(user.Picture)
-                } : {
-                    DisplayName: 'Anonymous',
-                    PictureUrl: app.helper.resolveProfilePictureUrl()
-                };
             },
             isVisible: function () {
                 var currentUserId = app.Users.currentUser.data.Id;
@@ -85,7 +51,7 @@ app.Posts = (function () {
             },
             transport: {
                 // Required by Backend Services
-                typeName: 'Posts'
+                typeName: 'PostTypes'
             },
             change: function (e) {
 

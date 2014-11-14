@@ -1,5 +1,5 @@
 <div data-role="view" id="view-all-posts" data-layout="default" class="activities-view"
-     data-model="app.Activities">
+     data-model="app.Posts">
 
     <div data-role="header">
         <div style="color:black;" data-role="navbar">
@@ -20,10 +20,10 @@
     <!-- footer -->
     <div data-role="footer">
         <!-- tabstrip -->
-        <div id="tabstrip">
+        <div data-role="tabstrip">
             <a style="color:black;" href="index.html" data-icon="search">Home</a>
 
-            <a style="color:black;" href="views/Post-Option-Sreen.html"><i style="color:black;"
+            <a style="color:black;" href="views/postOptionScreen.html"><i style="color:black;"
                                                                            class="fa fa-map-marker fa-3x"></i><br/>Post</a>
             <a style="color:black;" href="views/map.html"><i style="color:black;"
                                                              class="fa fa-location-arrow fa-3x"></i><br/>Near Me</a>
@@ -36,13 +36,13 @@
 
 </div>
 
-<!-- Activities ListView Template -->
+<!-- Post ListView Template -->
 <script type="text/x-kendo-template" id="activityTemplate">
     <div data-role="touch" data-bind="events: { tap: activitySelected }" class="cf">
         <div class="user-avatar">
             <img data-bind="attr:{src: User().PictureUrl}" alt="styles/images/avatar.png" height="40px" width="40px"/>
         </div>
-        <div class="activity-content">
+        <div class="posts-content">
             <b class="post-title">${Title}</b> <br/>
             <span class="post-description">${Description}</span><br/><br/>
             <span class="price">Price: ${Price}</span><br/>
