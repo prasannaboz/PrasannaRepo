@@ -19,8 +19,12 @@
                 </li>
                 <li style="color:black;">
                     <label>Category
-                        <input type="text" id="postCategory" data-bind="attr: { value: post-type-name}">
-
+                        <select id="postCategory">
+                            <option>-select category-</option>
+                            <option>Classified</option>
+                            <option>SplitDeal</option>
+                            <option>Deal4Share</option>
+                        </select>
                     </label>
                 </li>
                 <li style="color:black;">
@@ -30,20 +34,16 @@
                 </li>
                 <li style="color:black;">
                     <a>Sale End Date </a>
-                    <input id="postDate"/>
-
+                    <input id="saleEndDate" type="date"/>
                 </li>
+
                 <li style="color:black;">
-                    <label>Keyword
-                        <input type="text" id="postKeyword"/>
-                    </label>
+                    <input type="file" id="postPicture"> Attach a photo</a>
                 </li>
-
-                <li style="color:black;"><a>Attach a photo</a></li>
             </ul>
         </li>
         <li style="text-align:center;display:block;">
-            <a data-role="button" data-click="savePost" >POST</a>
+            <a data-role="button" data-click="savePost">POST</a>
         </li>
     </ul>
     <!-- footer -->
@@ -53,7 +53,7 @@
             <a style="color:black;" href="index.html" data-icon="search">Home</a>
 
             <a style="color:black;" href="views/postOptionScreen.html"><i style="color:black;"
-                                                                           class="fa fa-map-marker fa-3x"></i><br/>Post</a>
+                                                                          class="fa fa-map-marker fa-3x"></i><br/>Post</a>
             <a style="color:black;" href="views/map.html"><i style="color:black;"
                                                              class="fa fa-location-arrow fa-3x"></i><br/>Near Me</a>
             <a style="color:black;" href="views/Favorite-Screen.html"><i style="color:black;"

@@ -13,7 +13,6 @@ function savePost() {
                 type: "POST",
                 dataType: "json"
             }
-
         },
 
         schema: {
@@ -26,20 +25,41 @@ function savePost() {
                     },
                     PostCategory:{
                         type:"string"
+                    },
+                    Description:{
+                        type:"string"
+                    },
+                    SaleEndDate:{
+                        type:"date"
+                    },
+                    Picture:{
+                        type:"file"
                     }
+
                 }
             }//end of model
         }//end of schema
     });//end of data source
 
-    var itemtoinser = {
+    var itemsToInsert = {
         Title:$('#postTitle').val(),
-        PostCategory:$('#postCategory').val()
+        PostCategory:$('#postCategory').val(),
+        Description:$('#postDescription').val(),
+        SaleEndDate:$('#saleEndDate').val(),
+        Picture:$('postPicture').val()
+        //User_id: Users().currentUser.id
 
     };
 
-    savePostDS.add(itemtoinser);
+    savePostDS.add(itemsToInsert);
     savePostDS.sync();
+
+    $('#postTitle').val('');
+    $('#postCategory').val('');
+    $('#postDescription').val('');
+    $('#saleEndDate').val('');
+    $('postPicture').val('');
+
     console.log("Datasourse sync successfully");
 
 }//end of function

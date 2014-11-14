@@ -35,6 +35,10 @@
     background: #3598db;
 }
 
+#splitDealApp .text-color{
+    color:#000000;
+}
+
 #friendsApp.km-flat,
 #friendsApp.km-flat .km-navbar,
 #friendsApp.km-flat .km-content {
