@@ -17,10 +17,6 @@ app.PostTypes = (function () {
 
             id: 'Id',
             fields: {
-                Title: {
-                    field: 'Title',
-                    defaultValue: ''
-                },
                 CreatedAt: {
                     field: 'CreatedAt',
                     defaultValue: new Date()
@@ -61,7 +57,8 @@ app.PostTypes = (function () {
                     $('#no-activities-span').show();
                 }
             },
-            sort: { field: 'CreatedAt', dir: 'desc' }
+            sort: { field: 'CreatedAt', dir: 'desc' },
+            selectable:true
         });
 
         return {
@@ -74,8 +71,7 @@ app.PostTypes = (function () {
     var activitiesViewModel = (function () {
 
         // Navigate to activityView When some activity is selected
-        var typeSelected = function (e) {
-
+        var typeSelected = function () {
             app.mobileApp.navigate('views/BestBuy-Screen.html');
         };
 

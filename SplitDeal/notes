@@ -43,7 +43,7 @@
             </ul>
         </li>
         <li style="text-align:center;display:block;">
-            <a data-role="button" data-click="savePost" >POST</a>
+            <a data-role="button" >POST</a>
         </li>
     </ul>
     <!-- footer -->

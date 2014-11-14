@@ -10,19 +10,10 @@
     </header>
 
     <ul id="post-types-listview" data-style="inset" data-role="listview" data-template="postTypesTemplate"
-        data-bind="source: activities"></ul>
+        data-bind="source: activities">
 
-    <!--<ul id="postListView" data-role="listview" data-style="inset" data-type="group">
+    </ul>
 
-        <li style="background-color:#5490CC;color:white;">
-            Select options
-            <ul>
-                <li style="color:black;"><a href="views/Deal4share-Screen.html">Deal4Share</a></li>
-                <li style="color:black;"><a href="#Splitdeal-screen">SplitDeal</a></li>
-                <li style="color:black;"><a>Classified</a></li>
-            </ul>
-        </li>
-    </ul>-->
 
     <!-- footer -->
     <div data-role="footer">
@@ -48,7 +39,7 @@
 <script type="text/x-kendo-template" id="postTypesTemplate">
     <div data-role="touch" data-bind="events: { tap: typeSelected }" class="cf">
         <div class="postType-content">
-            <b class="post-type">${TypeName}</b> <br/>
+            <b class="post-type" data-bind="value: post-type-name">${TypeName}</b> <br/>
         </div>
     </div>
 
