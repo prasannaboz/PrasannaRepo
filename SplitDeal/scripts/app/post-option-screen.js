@@ -74,9 +74,9 @@ app.PostTypes = (function () {
     var activitiesViewModel = (function () {
 
         // Navigate to activityView When some activity is selected
-        var activitySelected = function (e) {
+        var typeSelected = function (e) {
 
-            app.mobileApp.navigate('views/watchListView.html?uid=' + e.data.uid);
+            app.mobileApp.navigate('views/BestBuy-Screen.html');
         };
 
         // Navigate to app home
@@ -97,7 +97,7 @@ app.PostTypes = (function () {
 
         return {
             activities: activitiesModel.activities,
-            activitySelected: activitySelected,
+            typeSelected: typeSelected,
             logout: logout
         };
 
