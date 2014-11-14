@@ -1,23 +1,26 @@
-<div data-role="view" id="Watchview" data-title="MyWatch" data-layout="default">
+<div data-role="view" id="view-all-posts" data-layout="default" class="activities-view"
+     data-model="app.Activities">
+
     <div data-role="header">
         <div style="color:black;" data-role="navbar">
             MyWatch
             <a style="color:black;" class="nav-button nav-button-back hide-text" data-align="left"
-               data-role="backbutton" href="Search-Screen.html">Back</a>
+               data-role="backbutton">Back</a>
         </div>
     </div>
-    <div id="map1">
-        <div class="demo-section k-header" style="padding: 1em;">
 
-            <div id="grid"></div>
-        </div>
 
-    </div>
+    <ul id="activities-listview" data-style="inset" data-role="listview" data-template="activityTemplate"
+        data-bind="source: activities"></ul>
+
+    <p id="no-activities-span" hidden="hidden" class="no-items-msg">
+        <b>You have no posts yet.</b><br/><br/>Tap on the plus sign and share what's on your mind.
+    </p>
 
     <!-- footer -->
     <div data-role="footer">
         <!-- tabstrip -->
-        <div data-role="tabstrip">
+        <div id="tabstrip">
             <a style="color:black;" href="index.html" data-icon="search">Home</a>
 
             <a style="color:black;" href="views/Post-Option-Sreen.html"><i style="color:black;"
@@ -29,7 +32,26 @@
             <a style="color:black;" href="views/Refine-Search.html" data-icon="settings">Setting</a>
         </div>
     </div>
+
+
 </div>
+
+<!-- Activities ListView Template -->
+<script type="text/x-kendo-template" id="activityTemplate">
+    <div data-role="touch" data-bind="events: { tap: activitySelected }" class="cf">
+        <div class="user-avatar">
+            <img data-bind="attr:{src: User().PictureUrl}" alt="styles/images/avatar.png" height="40px" width="40px"/>
+        </div>
+        <div class="activity-content">
+            <b class="post-title">${Title}</b> <br/>
+            <span class="post-description">${Description}</span><br/><br/>
+            <span class="price">Price: ${Price}</span><br/>
+            <span class="time-span">Post by: ${CreatedAtFormatted()}</span><br/>
+        </div>
+    </div>
+
+</script>
+
 
 
 
