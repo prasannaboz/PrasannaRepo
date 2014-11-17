@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name="viewport" content="initial-scale=1.0 user-scalable=no"/>
+
+    <title> Map Example </title>
+    <style>
+        html {
+            height: 100%
+        }
+
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0
+        }
+
+        #mainDiv {
+            height: 100%;
+        }
+    </style>
+
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDHym6cu_bXDMknWVdzKF3wKoh4NZ8KePM">
+    </script>
+
+    <script>
+        function initialize() {
+            var mapsOptions = {
+                center: new google.maps.LatLng(18.520430, 73.856744),
+                zoom: 8
+            };
+            var map = new google.maps.Map(document.getElementById("mainDiv"),mapsOptions);
+        }
+
+        google.maps.event.addDomListener(window,"load",initialize);
+    </script>
+</head>
+<body>
+<div id="mainDiv">
+
+</div>
+
+</body>
+</html>
